@@ -1,0 +1,26 @@
+* {
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(images/egyptian.jpg);
+    background-size: cover;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.tile {
+    height: 100px;
+    width: 100px;
+}
