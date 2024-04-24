@@ -1,16 +1,23 @@
 * {
     border: 1px solid red;
     box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-    background-image: url(images/egyptian.jpg);
-    background-size: cover;
+    /* background-image: url(images/egyptian.jpg);
+    background-size: cover; */
+    background-color: #a3bbcf;
 }
 
 .wrapper {
     width: 80%;
     margin: 0 auto;
+    text-align: center;
+}
+
+header {
+    font-size: 3rem;
 }
 
 .board {
@@ -18,9 +25,11 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     width: fit-content;
     margin: 0 auto;
+    border: none;
 }
 
-.tile {
+.board div {
     height: 100px;
     width: 100px;
+    border: 5px solid gray;
 }
