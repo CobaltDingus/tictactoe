@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <link rel="icon" type="image/x-icon" href="images/tic-tac-toe.ico">
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap">
 </head>
 <body>
-    <div class="wrapper">
-        <header>Tic-Tac-Toe</header>
+    <div class="bg-image"></div>
+    <header>Tic-Tac-Toe</header>
+    <div class="game-wrapper">
+        <aside class="scoreboard">❌ Player 1 Score ❌ <span class="score-counter">0</span></aside>
         <div class="board">
             <div class="tileEmpty"></div>
             <div class="tileEmpty"></div>
@@ -20,10 +26,15 @@
             <div class="tileEmpty"></div>
             <div class="tileEmpty"></div>
         </div>
-        <h1 class="message">test</h1>
-        <h2>Did you know:</h2>
-        <p>Blafsfho</p>
+        <aside class="scoreboard">⭕ Player 2 Score ⭕<span class="score-counter">0</span></aside>
     </div>
+    <h3 class="message-text">"Player 1, click a tile to begin!"</h3>
+    <div class="buttons-div">
+        <button class="trivia-btn">Trivia</button>
+        <button class="new-round-btn">New Round</button>
+        <button class="reset-btn">Reset</button>
+    </div>
+    <p class="trivia-paragraph">Did you know: <span class="trivia-content">You can press the trivia button to learn something new about Tic-Tac-Toe!</span></p>
     <script src="app.js"></script>
 </body>
 </html>

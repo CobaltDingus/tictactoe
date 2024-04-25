@@ -1,35 +1,101 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    margin: 0px 0px;
 }
 
 body {
-    /* background-image: url(images/egyptian.jpg);
-    background-size: cover; */
-    background-color: #a3bbcf;
+    background-color: bisque;
+    font-family: "Special Elite", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.wrapper {
-    width: 80%;
+.game-wrapper {
+    max-width: 80%;
     margin: 0 auto;
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+aside.scoreboard {
+    margin: auto 0;
+    font-size: 1.1rem;
+}
+
+.score-counter {
+    display: block;
+    padding: 60px;
+    font-size: 2rem;
+}
+
+.message-text {
+    margin: 20px auto;
+    display: block;
+    max-width: 50%;
+    text-align: center;
+    color: black;
 }
 
 header {
     font-size: 3rem;
+    padding: 20px;
+    text-align: center;
 }
 
 .board {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: fit-content;
     margin: 0 auto;
-    border: none;
+    overflow: hidden;
 }
 
 .board div {
     height: 100px;
     width: 100px;
-    border: 5px solid gray;
+    outline: 1px solid;
+
+}
+
+.tileO {
+    background-image: url(images/o.png);
+    background-size: cover;
+}
+
+.tileX {
+    background-image: url(images/x.png);
+    background-size: cover;    
+}
+
+.buttons-div {
+    max-width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    font-family: "Special Elite", system-ui;
+    padding: 10px;
+    background-color: black;
+}
+
+.trivia-btn {
+    color: blue;
+}
+
+.new-round-btn {
+    color: green;
+}
+
+.reset-btn {
+    color: red;
+}
+
+.trivia-paragraph {
+    line-height: 1.5;
+    margin: 20px auto;
+    display: block;
+    max-width: 50%;
 }
