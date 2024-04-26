@@ -1,6 +1,4 @@
-const mainMessage = document.querySelector('.message-text')
-const playerScores = document.querySelectorAll('.score-counter')
-
+// Global variables
 let isPlayerOne = true
 let concluded = false
 let playerMoves = 0
@@ -8,12 +6,16 @@ let playerOneScore = 0
 let playerTwoScore = 0
 let triviaIndex = 0
 
+// Display and tiles
+const mainMessage = document.querySelector('.message-text')
+const playerScores = document.querySelectorAll('.score-counter')
 const tileArray = document.querySelectorAll('.tileEmpty')
 
 for (tile of tileArray) {
     tile.addEventListener('click', playerMove)
 }
 
+// Buttons
 const triviaBtn = document.querySelector('.trivia-btn')
 const newRoundBtn = document.querySelector('.new-round-btn')
 const resetBtn = document.querySelector('.reset-btn')
@@ -22,6 +24,7 @@ triviaBtn.addEventListener('click', handleTrivia)
 newRoundBtn.addEventListener('click', handleNewRound)
 resetBtn.addEventListener('click', handleReset)
 
+// Random trivia
 let triviaContent = document.querySelector('.trivia-content')
 const triviaArray = [
     "The earliest recorded games of Tic-Tac-Toe date back to 1300 BC in Ancient Egypt, played on roof tilings of all things.",
@@ -34,6 +37,7 @@ const triviaArray = [
     "Because of its simplicity, Tic-Tac-Toe is often used as a teaching tool for kids to learn things like sportsmanship. Perhaps some gamers would stand to benefit from playing a bit more Tic-Tac-Toe."
 ]
 
+// Player move function
 // Check which player's turn it is and alternate symbols for each player.
 function playerMove(event) {
     let targetTile = event.target
@@ -52,6 +56,8 @@ function playerMove(event) {
     checkVictory()
 }
 
+// Scans rows, columns, and diagonals to check for three-in-a-rows
+// If none found and board is full, call a draw
 function checkVictory() {
     if (playerMoves >= 5) {
         scanRows()
@@ -122,26 +128,24 @@ function scanColumns() {
 }
 
 function scanDiagonals() {
-    // First diagonal tile positions
-    let i = 0, j = 8
     let middleTile = tileArray[4].classList
+    let firstDiagonal = [
+        tileArray[0].classList,
+        middleTile,
+        tileArray[8].classList,
+    ]
+
+    let secondDiagonal = [
+        tileArray[2].classList,
+        middleTile,
+        tileArray[6].classList,
+    ]
+
     if (!middleTile.contains('tileEmpty')) {
-        for (let loopCount = 0; loopCount < 2 && !concluded; loopCount++) {
-            let diagonalArray = []
-            let tile1 = tileArray[i].classList
-            let tile2 = middleTile
-            let tile3 = tileArray[j].classList
-            diagonalArray.push(tile1,tile2,tile3)
-            
-            if (diagonalArray.every(checkClassX)) {
-                playerOneVictory()
-            } else if (diagonalArray.every(checkClassO)) {
-                playerTwoVictory()
-            } else {
-                // Second diagonal tile positions
-                i = 2
-                j = 6
-            }
+        if (firstDiagonal.every(checkClassX) || secondDiagonal.every(checkClassX)) {
+            playerOneVictory()
+        } else if (firstDiagonal.every(checkClassO) || secondDiagonal.every(checkClassO)) {
+            playerTwoVictory()
         }
     }
 }
